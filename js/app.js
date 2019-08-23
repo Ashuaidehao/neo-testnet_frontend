@@ -26,8 +26,9 @@ var app = new Vue({
     userLanguage: sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0]
   },
   mounted: function () {
-    var _lan = sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0];
+    var _lan = this.userLanguage;
     sessionStorage.setItem("lan", _lan);
+    this.getGit();
   },
   methods: {
     onChange: function () {
@@ -36,10 +37,37 @@ var app = new Vue({
       this.errorText = '';
     },
     changeLanguage: function () {
-      var _lan = sessionStorage.getItem("lan") || (navigator.language || navigator.browserLanguage).split('-')[0];
+      var _lan = this.userLanguage;
       _lan === "zh" ? _lan = "en" : _lan = "zh";
       sessionStorage.setItem("lan", _lan);
       this.userLanguage = _lan;
+    },
+    getGit:function () {
+      fetch("/api/login-user",{
+        method: 'get',
+        headers: {
+            "Content-Type": "application/json"
+        },
+      }).then(function (res) {
+        return res.json();
+      }).then(function (data) {
+        if(data.success){
+          document.getElementById('gitBtn').checked = true;
+          document.getElementById('gitBtn').setAttribute("disabled", true);
+        }
+      })
+
+    },
+    checkGit: function (){
+      if(document.getElementById('gitBtn').checked){
+        if(this.userLanguage === 'zh'){
+          alert('Github验证成功，无需重复验证');
+        }else {
+          alert('Github has been verified without repeated verification');
+        }
+      }else {
+          window.location.href = "/api/login";
+      }
     },
     closeInstruction: function () {
       this.openedInstruction = false;
@@ -50,8 +78,10 @@ var app = new Vue({
     sendNeo: function (currency) {
       const self = this;
       self.success = false;
+      let github = document.getElementById('gitBtn').checked;
+
       var response = grecaptcha.getResponse();
-      if (this.isValid && response.length != 0) {
+      if (this.isValid && response.length != 0 && github) {
         var request = {
           address: this.key,
           'g-recaptcha-response': response,
@@ -104,6 +134,12 @@ var app = new Vue({
           this.errorText = "不正确的地址。请再次检查。";
         } else {
           this.errorText = "Invalid address. Please check your input.";
+        }
+      }else if(!github){
+        if (this.userLanguage === 'zh') {
+            this.errorText = "请添加github验证";
+        } else {
+            this.errorText = "Please complete GitHub to receive assets.";
         }
       }
     }

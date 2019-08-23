@@ -393,6 +393,7 @@ body {
   display: flex;
   align-items: flex-end;
   margin-bottom: 62px;
+  vertical-align: top;
   &__neo {
     display: block;
     width: 105px;
@@ -404,6 +405,16 @@ body {
   &__lang {
     color: #FFFFFF;
     background-color: #9B9B9B;
+    border: 1px solid #9B9B9B;
+    font-size: 16px;
+    padding:5px 8px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  &__login{
+    color: #9B9B9B;
+    border: 1px solid #9B9B9B;
     font-size: 16px;
     padding:5px 8px;
     margin-bottom: 5px;
@@ -492,6 +503,68 @@ body {
   }
   &__success {
     color: #40bb00;
+  }
+  .git{
+    position: relative;
+    margin: 20px 0;
+    &__box{
+      display: none;
+    }
+    label{
+      padding: 9px;
+      display: inline-block;
+      position: relative;
+      margin: 0 10px 2px 0;
+      width: 20px;
+      height: 20px;
+      transition: all 0.2s linear 0s;
+      transform-style: preserve-3d;
+      transform-origin: 100% 100%;
+      border: 1px solid #CCCCCC;
+      box-shadow: 0 1px 5px #DDDDDD;
+      cursor: pointer;
+    }
+    label:before {
+      content: ' ';
+      padding: 9px 0 0 0;
+      width: 100%;
+      height: 100%;
+      transition: all 0.2s ease-in;
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    label:after {
+      content: ' ';
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      color: #F0F6FC;
+      transform: rotateX(0deg) rotateY(90deg);
+      transform-origin: 0 0;
+      -webkit-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    span{
+      vertical-align: super;
+    }
+
+    &__box:checked + label{
+
+    }
+    &__box:checked + label:before {
+
+    }
+    &__box:checked + label:after {
+      transform: rotateX(0deg) rotateY(0deg) !important;
+      transform-origin: 100% 100%;
+      background: url("../img/check.svg") center,#50AC02;
+      background-size: contain;
+    }
   }
 }
 
