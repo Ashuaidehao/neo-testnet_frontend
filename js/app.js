@@ -4,14 +4,14 @@ var responses = {
       602: 'You have exceeded the number of requests allowed in one day. Please apply again tomorrow.',
       603: 'An internal server error has occurred. Please, try again later.',
       604: 'The verification code is incorrect. Please refresh the page and try again.',
-      605: 'Insufficient assets in this account, please contact NGD staff or apply through manual entry.\r\n https://discordapp.com/neo'
+      605: 'Insufficient assets in this account, please contact NGD staff or apply through manual entry.\r\n https://neo.org/testcoin/apply'
   },
   zh: {
       601: '该IP地址今日已经申请，请明天再来。',
       602: '该地址今日已经申请，请明天再来。',
       603: '服务器响应错误，请刷新页面后重试。',
       604: '验证码错误，请刷新页面后重试。',
-      605: '发币账户资产不足，请联系NGD的工作人员或者通过人工通道进行申请。\r\n https://discordapp.com/neo'
+      605: '发币账户资产不足，请联系NGD的工作人员或者通过人工通道进行申请。\r\n https://neo.org/testcoin/apply'
   }
 };
 
