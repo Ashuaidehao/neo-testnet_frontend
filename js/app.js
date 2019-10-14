@@ -43,7 +43,7 @@ var app = new Vue({
       this.userLanguage = _lan;
     },
     getGit:function () {
-      fetch("/api/login-user",{
+      fetch("/api/neo3/login-user",{
         method: 'get',
         headers: {
             "Content-Type": "application/json"
@@ -66,7 +66,7 @@ var app = new Vue({
           alert('Github has been verified without repeated verification');
         }
       }else {
-          window.location.href = "/api/login";
+          window.location.href = "/api/neo3/login";
       }
     },
     closeInstruction: function () {
@@ -87,7 +87,7 @@ var app = new Vue({
           'g-recaptcha-response': response,
           'asset': currency
         };
-        fetch('/api/request', {
+        fetch('/api/neo3/request', {
           method: 'post',
           body: JSON.stringify(request),
           headers: {
