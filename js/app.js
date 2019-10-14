@@ -100,7 +100,7 @@ var app = new Vue({
           self.inputDirty = false;
           var responseErr = data.code;
           if (responseErr == 401) {
-            window.location.href = data.msg;
+            window.location.href = "/neo3-api/api/login";
           }
           var _lan = sessionStorage.getItem("lan");
           if (!data.success) {
