@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/styles.css">
-  <title>NEO Testnet Faucet</title>
+  <title>NEO 3 Testnet Faucet</title>
   <link type="image/x-icon" href="img/favicon.png" rel="apple-touch-icon">
   <link type="image/x-icon" href="img/favicon.png" rel="shortcut icon">
   <link type="image/x-icon" href="img/favicon.png" rel="icon">
@@ -22,7 +22,7 @@
         <a href="https://neo.org" target="_blank" class="header__neo">
           <img src="img/neo.png" alt="">
         </a>
-        <a class="header__lang" @click="changeLanguage();">中 / EN</a>
+        <a class="header__lang" @click="changeLanguage();"><small>中</small> / EN</a>
       </div>
 
       <section class="instruction-section" v-show="openedInstruction">
@@ -117,13 +117,18 @@
         <button class="button" v-on:click="closeInstruction()"><span>Close instruction</span></button>
       </section>
       <section class="body"  v-show="!openedInstruction">
-        <div class="body__desc">
-          <span v-if="userLanguage === 'zh'">填写以下的申请表来获取NEO3测试网的测试币</span>
-          <span v-else>Fill the following application form to receive test assets for NEO Testnet.</span>
+        <div class="h1">
+            <span v-if="userLanguage === 'zh'"> NEO 3 <small class="bold smaller">自动测试币发放</small></span>
+            <span v-else>NEO 3 Testnet Faucet</span>
         </div>
-        <label class="body__label" for="key">
+        <div class="body__desc h2">
+          <span v-if="userLanguage === 'zh'"><small>填写以下的申请表来获取</small> NEO 3 <small>测试网的测试币</small></span>
+          <span v-else>Fill the following application form to receive test assets for NEO 3 Testnet.</span>
+        </div>
+        <label class="body__label bold" for="key">
           <span v-if="userLanguage === 'zh'">NEO地址</span>
           <span v-else>NEO address</span>
+          <span class="red"> * </span>
         </label>
         <input @change="onChange()"
         v-bind:class="{invalid: !isValid && inputDirty}"
@@ -136,15 +141,15 @@
           <span v-else>verified by GitHub</span>
         </div>
         <div class="g-recaptcha" data-sitekey="6LfNuZkUAAAAAHZpTqjqB46Z_m70tD-AnY0C44a7"></div>
-        <small v-if="userLanguage === 'zh'" class="g-recaptcha-hint">该功能需要通过Google、Github进行身份验证</small>
-        <small v-else class="g-recaptcha-hint">This feature needs to be verified by Google and Github</small>
+        <small class="smaller" v-if="userLanguage === 'zh'" class="g-recaptcha-hint">该功能需要通过Google、Github进行身份验证</small>
+        <small class="smaller" v-else class="g-recaptcha-hint">This feature needs to be verified by Google and Github</small>
         <div class="body__row">
-          <button v-on:click="sendNeo('NEO')" class="button">
+          <!-- <button v-on:click="sendNeo('NEO')" class="button">
             <span v-if="userLanguage === 'zh'"> 发给我1000个NEO测试币</span>
             <span v-else>Send me 1000 NEO test assets</span>
-          </button>&nbsp;&nbsp;&nbsp;
+          </button>&nbsp;&nbsp;&nbsp; -->
           <button v-on:click="sendNeo('GAS')" class="button">
-            <span v-if="userLanguage === 'zh'"> 发给我1000个Gas测试币</span>
+            <span v-if="userLanguage === 'zh'"> 发给我 1000 个Gas测试币</span>
             <span v-else>Send me 1000 Gas test assets</span>
           </button>
         </div>
@@ -167,11 +172,8 @@
     </div>
     <footer class="footer">
       <div class="footer__mywish">
-        <span v-if="userLanguage === 'zh'">由开发并且提供技术支持</span>
-        <span v-else>Developed & supported by</span>
-        <a href="https://mywish.io" target="_blank">
-          <img src="img/mywish.png" alt="mywish">
-        </a>
+          <br /><br /><br /><br />
+        Copyright © Neo Team 2014-2019
       </div>
       <!-- <div class="footer__tg">
         <a href="https://t.me/NEO_testnet_faucet_bot" target="_blank">
