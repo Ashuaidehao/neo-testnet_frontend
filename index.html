@@ -121,13 +121,18 @@
             <span v-if="userLanguage === 'zh'"> NEO 3 <small class="bold smaller">自动测试币发放</small></span>
             <span v-else>NEO 3 Testnet Faucet</span>
         </div>
-        <div class="body__desc h2">
-          <span v-if="userLanguage === 'zh'"><small>填写以下的申请表来获取</small> NEO 3 <small>测试网的测试币</small></span>
+        <div class="body__intro h2">
+          <span v-if="userLanguage === 'zh'"><small>填写以下的申请表来获取</small> NEO 3 <small>测试网的测试币。</small></span>
           <span v-else>Fill the following application form to receive test assets for NEO 3 Testnet.</span>
         </div>
+        <div class="body__desc">
+          <span v-if="userLanguage === 'zh'"><small>申请</small> NEO 3 <small>测试币，需要使用</small> NEO 3 <small>的地址。</small></span>
+          <span v-else>The assets for NEO 3 Testnet，should use NEO 3 address.</span>
+        </div>
+
         <label class="body__label bold" for="key">
-          <span v-if="userLanguage === 'zh'">NEO地址</span>
-          <span v-else>NEO address</span>
+          <span v-if="userLanguage === 'zh'">NEO 3 地址</span>
+          <span v-else>NEO 3 address</span>
           <span class="red"> * </span>
         </label>
         <input @change="onChange()"
@@ -149,8 +154,8 @@
             <span v-else>Send me 1000 NEO test assets</span>
           </button>&nbsp;&nbsp;&nbsp; -->
           <button v-on:click="sendNeo('GAS')" class="button">
-            <span v-if="userLanguage === 'zh'"> 发给我 1000 个Gas测试币</span>
-            <span v-else>Send me 1000 Gas test assets</span>
+            <span v-if="userLanguage === 'zh'"> 发给我 500 个Gas测试币</span>
+            <span v-else>Send me 500 Gas test assets</span>
           </button>
         </div>
         <div>
@@ -164,8 +169,8 @@
             <span v-else>Assets were successfully sent.</span>
           </div>
           <div class="body__info">
-              <span v-if="userLanguage === 'zh'">每个用户每日可以通过该页面自动申请测试网 1000个NEO 和 1000个GAS。</span>
-              <span v-else> This page can provides 1000 NEO and 1000 Gas from testnet for one NEO address and one IP address every 24 hours</span>
+              <span v-if="userLanguage === 'zh'">每个用户每日可以通过该页面自动申请测试网 500个GAS。</span>
+              <span v-else> This page can provides 500 Gas from testnet for one NEO address and one IP address every 24 hours</span>
           </div>
         </div>
       </section>

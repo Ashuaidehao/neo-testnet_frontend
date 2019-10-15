@@ -24,13 +24,13 @@ body {
 }
 
 .h1 {
-  font-size: 3.16em;
+  font-size: 2.37em;
   font-family: $font-family-bold;
   margin: 0.67em 0;
 }
 
 .h2{
-  font-size:2.37rem;
+  font-size:1.77rem;
   font-family: $font-family-bold;
 }
 
@@ -74,11 +74,16 @@ body {
   position: relative;
   background-image:url('../img/bg.svg'),linear-gradient(#F2F2F2,#F4F4F4);
   background-repeat:no-repeat;
-  background-size: 60%,contain;
+  background-size: 50%,contain;
   background-position: 80% bottom;
   font-family: $font-family;
-  color:#383838;
+  color:$dark;
   font-variant-ligatures: none;
+  overflow-x: hidden;
+  @media (max-width: 1368px) {
+    background-size: 650px,contain;
+  }
+
 }
 
 .container {
@@ -147,13 +152,21 @@ body {
 .body {
   display: flex;
   flex-direction: column;
-  &__desc {
-    width: 520px;
+  &__intro {
+    width: 470px;
     color: $dark;
     font-size: 20px;
     font-weight: 400;
     line-height: 31px;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
+  }
+  &__desc {
+    width: 470px;
+    color: $dark;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 31px;
+    margin-bottom: 52px;
   }
   &__label {
     color: #222222;
@@ -163,7 +176,7 @@ body {
   }
   &__input {
     font-variant-ligatures: none;
-    width: 495px;
+    width: 425px;
     background-color: #ffffff;
     padding: 6px 12px;
     color: rgb(56, 55, 55);
