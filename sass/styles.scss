@@ -77,6 +77,7 @@ body {
   background-size: 80%,contain;
   background-position: 100% 30%;
   font-family: $font-family;
+  font-weight: bolder;
   color:$dark;
   font-variant-ligatures: none;
   overflow-x: hidden;
@@ -96,7 +97,7 @@ body {
   border-radius: 6px;
   color: #ffffff;
   font-size: 15px;
-  font-weight: 100;
+  font-weight: bolder;
   line-height: 31px;
   background-color: $green2;
   border: none;
@@ -116,7 +117,7 @@ body {
   display: flex;
   align-items: flex-end;
   margin-bottom: 50px;
-  margin-left: -20px;
+  margin-left: -10px;
   vertical-align: top;
   &__neo {
     display: block;
@@ -166,7 +167,6 @@ body {
     width: 470px;
     color: $dark;
     font-size: 18px;
-    font-weight: 300;
     line-height: 31px;
     margin-bottom: 50px;
   }
@@ -226,7 +226,7 @@ body {
     max-width: 520px;
     color: #8c8c8c;
     font-size: 15px;
-    font-weight: 400;
+    // font-weight: 400;
     line-height: 22px;
     margin-bottom: 20px;
   }
