@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/styles.css">
-  <title>NEO 3 Testnet Faucet</title>
+  <title>NEO3 Testnet Faucet</title>
   <link type="image/x-icon" href="img/favicon.png" rel="apple-touch-icon">
   <link type="image/x-icon" href="img/favicon.png" rel="shortcut icon">
   <link type="image/x-icon" href="img/favicon.png" rel="icon">
@@ -118,21 +118,21 @@
       </section>
       <section class="body"  v-show="!openedInstruction">
         <div class="h1">
-            <span v-if="userLanguage === 'zh'"> NEO 3 <small class="bold smaller">自动测试币发放</small></span>
-            <span v-else>NEO 3 Testnet Faucet</span>
+            <span v-if="userLanguage === 'zh'"> NEO3 <small class="bold smaller">测试币自动发放</small></span>
+            <span v-else>NEO3 Testnet Faucet</span>
         </div>
-        <div class="body__intro h2">
-          <span v-if="userLanguage === 'zh'"><small>填写以下的申请表来获取</small> NEO 3 <small>测试网的测试币。</small></span>
-          <span v-else>Fill the following application form to receive test assets for NEO 3 Testnet.</span>
-        </div>
+        <!-- <div class="body__intro h2">
+          <span v-if="userLanguage === 'zh'"><small>填写以下的申请表来获取</small> NEO3 <small>测试网的测试币。</small></span>
+          <span v-else>Fill the following application form to receive test assets for NEO3 Testnet.</span>
+        </div> -->
         <div class="body__desc">
-          <span v-if="userLanguage === 'zh'"><small>申请</small> NEO 3 <small>测试币，需要使用</small> NEO 3 <small>的地址。</small></span>
-          <span v-else>The assets for NEO 3 Testnet，should use NEO 3 address.</span>
+          <span v-if="userLanguage === 'zh'"><small>申请</small> NEO3 <small>测试币，请使用</small> NEO3 <small>的地址。</small></span>
+          <span v-else>Apply for NEO3 Testnet GAS, please use NEO3 address.</span>
         </div>
 
         <label class="body__label bold" for="key">
-          <span v-if="userLanguage === 'zh'">NEO 3 地址</span>
-          <span v-else>NEO 3 address</span>
+          <span v-if="userLanguage === 'zh'">NEO3 地址</span>
+          <span v-else>NEO3 address</span>
           <span class="red"> * </span>
         </label>
         <input @change="onChange()"
@@ -155,7 +155,7 @@
           </button>&nbsp;&nbsp;&nbsp; -->
           <button v-on:click="sendNeo('GAS')" class="button">
             <span v-if="userLanguage === 'zh'"> 发给我 500 个Gas测试币</span>
-            <span v-else>Send me 500 Gas test assets</span>
+            <span v-else>Send me 500 Testnet Gas</span>
           </button>
         </div>
         <div>
@@ -177,7 +177,6 @@
     </div>
     <footer class="footer">
       <div class="footer__mywish">
-          <br /><br /><br /><br />
         Copyright © Neo Team 2014-2019
       </div>
       <!-- <div class="footer__tg">

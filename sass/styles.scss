@@ -24,9 +24,9 @@ body {
 }
 
 .h1 {
-  font-size: 2.37em;
+  font-size: 2em;
   font-family: $font-family-bold;
-  margin: 0.67em 0;
+  margin: 0;
 }
 
 .h2{
@@ -72,27 +72,28 @@ img {
 body {
   min-height: 100vh;
   position: relative;
-  background-image:url('../img/bg.svg'),linear-gradient(#F2F2F2,#F4F4F4);
+  background-image:url('../img/bg3.svg'),linear-gradient(#F2F2F2,#F4F4F4);
   background-repeat:no-repeat;
-  background-size: 50%,contain;
-  background-position: 80% bottom;
+  background-size: 80%,contain;
+  background-position: 100% 30%;
   font-family: $font-family;
   color:$dark;
   font-variant-ligatures: none;
   overflow-x: hidden;
-  @media (max-width: 1368px) {
-    background-size: 650px,contain;
-  }
+  // @media (max-width: 1368px) {
+  //   background-size: 650px,contain;
+  // }
 
 }
 
 .container {
   margin-left: 190px;
-  min-height: 670px;
+  min-height: 600px;
 }
 
 .button {
   padding: 6px 12px;
+  border-radius: 6px;
   color: #ffffff;
   font-size: 15px;
   font-weight: 100;
@@ -114,12 +115,13 @@ body {
 .header {
   display: flex;
   align-items: flex-end;
-  margin-bottom: 62px;
+  margin-bottom: 35px;
+  margin-left: -20px;
   vertical-align: top;
   &__neo {
     display: block;
     width: 105px;
-    margin: 43px 62px 0 10px;
+    margin: 30px 62px 0 10px;
     img {
       width: 100%;
     }
@@ -129,7 +131,7 @@ body {
     font-weight: 400;
     background: linear-gradient(172deg, #02e49b, #00bd9b);
     color: #fff;
-    border-radius: 0;
+    border-radius: 6px;
     min-width: 86px;
     padding: 7px 15px;
     margin-bottom: 6px;
@@ -166,7 +168,7 @@ body {
     font-size: 18px;
     font-weight: 300;
     line-height: 31px;
-    margin-bottom: 52px;
+    margin-bottom: 35px;
   }
   &__label {
     color: #222222;
@@ -176,6 +178,7 @@ body {
   }
   &__input {
     font-variant-ligatures: none;
+    border-radius: 6px;
     width: 425px;
     background-color: #ffffff;
     padding: 6px 12px;
