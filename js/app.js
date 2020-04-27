@@ -148,7 +148,7 @@ var app = new Vue({
     isValid: function () {
       var key = this.key.trim();
       var regex = new RegExp("^[N][1-9A-HJ-NP-Za-km-z]{32,34}$");
-      return key && regex.test(_a);
+      return key && regex.test(key);
     }
   }
 });
