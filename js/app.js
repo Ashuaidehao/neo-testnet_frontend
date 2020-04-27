@@ -1,17 +1,17 @@
 var responses = {
   en: {
-      601: 'You have exceeded the number of requests allowed in one day. Please try again tomorrow.',
-      602: 'You have exceeded the number of requests allowed in one day. Please apply again tomorrow.',
-      603: 'An internal server error has occurred. Please, try again later.',
-      604: 'The verification code is incorrect. Please refresh the page and try again.',
-      605: 'Insufficient assets in this account, please contact NGD staff or apply through manual entry.\r\n https://neo.org/testcoin/apply'
+    601: 'You have exceeded the number of requests allowed in one day. Please try again tomorrow.',
+    602: 'You have exceeded the number of requests allowed in one day. Please apply again tomorrow.',
+    603: 'An internal server error has occurred. Please, try again later.',
+    604: 'The verification code is incorrect. Please refresh the page and try again.',
+    605: 'Insufficient assets in this account, please contact NGD staff or apply through manual entry.\r\n https://neo.org/testcoin/apply'
   },
   zh: {
-      601: '该IP地址今日已经申请，请明天再来。',
-      602: '该地址今日已经申请，请明天再来。',
-      603: '服务器响应错误，请刷新页面后重试。',
-      604: '验证码错误，请刷新页面后重试。',
-      605: '发币账户资产不足，请联系NGD的工作人员或者通过人工通道进行申请。\r\n https://neo.org/testcoin/apply'
+    601: '该IP地址今日已经申请，请明天再来。',
+    602: '该地址今日已经申请，请明天再来。',
+    603: '服务器响应错误，请刷新页面后重试。',
+    604: '验证码错误，请刷新页面后重试。',
+    605: '发币账户资产不足，请联系NGD的工作人员或者通过人工通道进行申请。\r\n https://neo.org/testcoin/apply'
   }
 };
 
@@ -46,23 +46,23 @@ var app = new Vue({
       fetch("/neo3-api/api/login-user",{
         method: 'get',
         headers: {
-            "Content-Type": "application/json"
+          "Content-Type": "application/json"
         },
       }).then(function (res) {
         return res.json();
       }).then(function (data) {
-        if(data.success){
+        if (data.success) {
           document.getElementById('gitBtn').checked = true;
           document.getElementById('gitBtn').setAttribute("disabled", true);
         }
       })
 
     },
-    checkGit: function (){
-      if(document.getElementById('gitBtn').checked){
-        if(this.userLanguage === 'zh'){
+    checkGit: function () {
+      if (document.getElementById('gitBtn').checked) {
+        if (this.userLanguage === 'zh') {
           alert('Github验证成功，无需重复验证');
-        }else {
+        } else {
           alert('Github has been verified without repeated verification');
         }
       }else {
@@ -135,18 +135,22 @@ var app = new Vue({
         } else {
           this.errorText = "Invalid address. Please check your input.";
         }
-      }else if(!github){
+      } else if (!github) {
         if (this.userLanguage === 'zh') {
-            this.errorText = "请添加github验证";
+          this.errorText = "请添加github验证";
         } else {
-            this.errorText = "Please complete GitHub to receive assets.";
+          this.errorText = "Please complete GitHub to receive assets.";
         }
       }
     }
   },
   computed: {
     isValid: function () {
-      return this.key && WAValidator.validate(this.key, 'NEO');
+      var _a = this.key.trim(), r = false;
+      if (_a.length >= 33 && _a.length <= 35 && _a.charCodeAt(0) === 78) {
+        r = _a.match(/[^0IOl+/]/g).length == _a.length;
+      }
+      return this.key && r;
     }
   }
 });
