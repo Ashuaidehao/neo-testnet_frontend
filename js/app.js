@@ -42,8 +42,8 @@ var app = new Vue({
       sessionStorage.setItem("lan", _lan);
       this.userLanguage = _lan;
     },
-    getGit:function () {
-      fetch("/neo3-api/api/login-user",{
+    getGit: function () {
+      fetch("/neo3-api/api/login-user", {
         method: 'get',
         headers: {
           "Content-Type": "application/json"
@@ -65,8 +65,8 @@ var app = new Vue({
         } else {
           alert('Github has been verified without repeated verification');
         }
-      }else {
-          window.location.href = "/neo3-api/api/login";
+      } else {
+        window.location.href = "/neo3-api/api/login";
       }
     },
     closeInstruction: function () {
@@ -146,11 +146,9 @@ var app = new Vue({
   },
   computed: {
     isValid: function () {
-      var _a = this.key.trim(), r = false;
-      if (_a.length >= 33 && _a.length <= 35 && _a.charCodeAt(0) === 78) {
-        r = _a.match(/[^0IOl+/]/g).length == _a.length;
-      }
-      return this.key && r;
+      var key = this.key.trim();
+      var regex = new RegExp("^[N][1-9A-HJ-NP-Za-km-z]{32,34}$");
+      return key && regex.test(_a);
     }
   }
 });
